@@ -1,0 +1,130 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "[K2] Post Delivery Method API Service QA"
+  },
+  "host" : "12.2.110.212",
+  "basePath" : "/ws/rest/K2_Post_DM",
+  "paths" : {
+    "/delivery_method_qa" : {
+      "post" : {
+        "tags" : [ "delivery_method_qa" ],
+        "summary" : "[K2] Post Delivery Method",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "[K2] Post AS400 Delivery Method ",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Root"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          },
+          "400" : {
+            "$ref" : "#/responses/400"
+          },
+          "401" : {
+            "$ref" : "#/responses/401"
+          },
+          "404" : {
+            "$ref" : "#/responses/404"
+          },
+          "413" : {
+            "$ref" : "#/responses/413"
+          },
+          "500" : {
+            "$ref" : "#/responses/500"
+          },
+          "503" : {
+            "$ref" : "#/responses/503"
+          },
+          "522" : {
+            "$ref" : "#/responses/522"
+          },
+          "default" : {
+            "$ref" : "#/responses/default"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Root" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "HLHSHH" : {
+            "type" : "string"
+          },
+          "HLHSHN" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  },
+  "responses" : {
+    "400" : {
+      "description" : "Bad Request - There are miscellaneous errors with the request, for example, mismatches between the request and what is allowed for the operation.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "401" : {
+      "description" : "Unauthorized or 403 Forbidden - Authentication errors.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "404" : {
+      "description" : "Not Found - Invalid URL path.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "413" : {
+      "description" : "Request Entity Too Large - The request data was too large. This is based on the SOA Input Size quota.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "500" : {
+      "description" : "Internal Server Error - This generic error message appears when an unexpected condition was encountered and a more specific message is not suitable.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "503" : {
+      "description" : "Service Unavailable - The caller has hit a throttle or the request was rejected because the Atom is starting or stopping.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "522" : {
+      "description" : "Connection Timed Out - This message is returned to the client when the SOA Worker Maximum Execution Time has been exceeded.",
+      "schema" : {
+        "type" : "string"
+      }
+    },
+    "default" : {
+      "description" : "Unidentified Exception",
+      "schema" : {
+        "type" : "string"
+      }
+    }
+  },
+  "schemes" : [ "http" ],
+  "securityDefinitions" : {
+    "basic" : {
+      "type" : "basic"
+    }
+  },
+  "security" : [ {
+    "basic" : [ ]
+  } ]
+}
